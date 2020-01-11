@@ -34,6 +34,7 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
         last_image_time = img_msg->header.stamp.toSec();
         return;
     }
+	//ROS_INFO("#cam: %d", NUM_OF_CAM);
     // detect unstable camera stream
     if (img_msg->header.stamp.toSec() - last_image_time > 1.0 || img_msg->header.stamp.toSec() < last_image_time)
     {
@@ -200,6 +201,8 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
             pub_match.publish(ptr->toImageMsg());
         }
     }
+	std::ofstream fout(TIME_OUTPUT, std::ios::app);
+	fout << t_r.toc() << std::endl;
     ROS_INFO("whole feature tracker processing costs: %f", t_r.toc());
 }
 

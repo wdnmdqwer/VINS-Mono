@@ -4,6 +4,7 @@ std::string IMAGE_TOPIC;
 std::string IMU_TOPIC;
 std::vector<std::string> CAM_NAMES;
 std::string FISHEYE_MASK;
+std::string TIME_OUTPUT;
 int MAX_CNT;
 int MIN_DIST;
 int WINDOW_SIZE;
@@ -45,6 +46,11 @@ void readParameters(ros::NodeHandle &n)
     }
     std::string VINS_FOLDER_PATH = readParam<std::string>(n, "vins_folder");
 
+	std::string time_output_path;
+    fsSettings["output_path"] >> time_output_path;
+	TIME_OUTPUT = time_output_path + "/feature_tracker_time.txt";
+	std::ofstream fout(TIME_OUTPUT, std::ios::out);
+	fout.close();
     fsSettings["image_topic"] >> IMAGE_TOPIC;
     fsSettings["imu_topic"] >> IMU_TOPIC;
     MAX_CNT = fsSettings["max_cnt"];

@@ -1,6 +1,7 @@
 #pragma once
 #include <ros/ros.h>
 #include <opencv2/highgui/highgui.hpp>
+#include <fstream>
 
 extern int ROW;
 extern int COL;
@@ -22,5 +23,6 @@ extern int STEREO_TRACK;
 extern int EQUALIZE;
 extern int FISHEYE;
 extern bool PUB_THIS_FRAME;
+extern std::string TIME_OUTPUT;
 
 void readParameters(ros::NodeHandle &n);

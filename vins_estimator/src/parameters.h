@@ -37,6 +37,8 @@ extern double TR;
 extern int ESTIMATE_TD;
 extern int ROLLING_SHUTTER;
 extern double ROW, COL;
+extern double TRACKING_TIME;
+extern double AVG_TRACKING_TIME;
 
 
 void readParameters(ros::NodeHandle &n);

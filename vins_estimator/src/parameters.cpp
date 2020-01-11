@@ -22,6 +22,8 @@ std::string VINS_RESULT_PATH;
 std::string IMU_TOPIC;
 double ROW, COL;
 double TD, TR;
+double TRACKING_TIME = 0.;
+double AVG_TRACKING_TIME = 0.;
 
 template <typename T>
 T readParam(ros::NodeHandle &n, std::string name)

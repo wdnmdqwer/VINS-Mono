@@ -97,6 +97,8 @@ void printStatistics(const Estimator &estimator, double t)
     ROS_DEBUG("average of time %f ms", sum_of_time / sum_of_calculation);
 
     sum_of_path += (estimator.Ps[WINDOW_SIZE] - last_path).norm();
+	TRACKING_TIME = t;
+	AVG_TRACKING_TIME = sum_of_calculation;
     last_path = estimator.Ps[WINDOW_SIZE];
     ROS_DEBUG("sum of path %f", sum_of_path);
     if (ESTIMATE_TD)
@@ -168,7 +170,7 @@ void pubOdometry(const Estimator &estimator, const std_msgs::Header &header)
               << tmp_Q.z() << ","
               << estimator.Vs[WINDOW_SIZE].x() << ","
               << estimator.Vs[WINDOW_SIZE].y() << ","
-              << estimator.Vs[WINDOW_SIZE].z() << "," << endl;
+              << estimator.Vs[WINDOW_SIZE].z() << "," << TRACKING_TIME << endl;
         foutC.close();
     }
 }
