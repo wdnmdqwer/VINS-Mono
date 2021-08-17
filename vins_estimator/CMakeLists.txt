@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
     )
 
 find_package(OpenCV REQUIRED)
+# find_package(OpenCV 3.0 QUIET)
+# find_package(OpenCV EXACT PATHS "/home/zsk/opencv_build/opencv/build/OpenCVConfig.cmake")
 
 # message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
 
@@ -51,6 +53,6 @@ add_executable(vins_estimator
     )
 
 
-target_link_libraries(vins_estimator ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES}) 
+target_link_libraries(vins_estimator ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 
 

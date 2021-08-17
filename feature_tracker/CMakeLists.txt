@@ -13,7 +13,10 @@ find_package(catkin REQUIRED COMPONENTS
     camera_model
     )
 
-find_package(OpenCV REQUIRED)
+# find_package(OpenCV REQUIRED)
+# find_package(OpenCV 3.4 EXACT REQUIRED)
+message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
+find_package(OpenCV REQUIRED PATHS "/home/zsk/opencv_build/opencv/build/OpenCVConfig.cmake" NO_DEFAULT_PATH)
 
 catkin_package()
 

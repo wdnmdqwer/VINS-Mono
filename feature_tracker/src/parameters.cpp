@@ -1,4 +1,6 @@
 #include "parameters.h"
+#include <opencv2/opencv.hpp>
+
 
 std::string IMAGE_TOPIC;
 std::string IMU_TOPIC;

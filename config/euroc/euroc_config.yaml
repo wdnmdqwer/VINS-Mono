@@ -8,7 +8,7 @@ output_path: "/tmp/"
 #camera calibration 
 model_type: PINHOLE
 camera_name: camera
-image_width: 752
+image_width: 640
 image_height: 480
 distortion_parameters:
    k1: -2.917e-01
